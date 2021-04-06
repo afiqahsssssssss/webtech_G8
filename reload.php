@@ -4,27 +4,7 @@
   <?php echo $successMessage; ?>
 </div>
 <?php } ?>
-<?php
-class Wallet {
-    public $totalbalance = 0;
-    }
 
-    function totalbalance($reload) {
-
-        $totalbalance += $reload;
-
-        echo "<h> Balance : " . $totalbalance ."</h>";
-      }
-
-if(isset($_POST['calculate'])){
-    if (!isset($_POST['reload'])) {
-        return 'Please enter your reload amount';
-        exit();
-      }
-
-      $reload = filter_var(htmlentities(floatval($_POST['reload'])),FILTER_SANITIZE_NUMBER_FLOAT);
-}
-?>
 
 
 <div id="error-message"></div>
@@ -99,3 +79,33 @@ if(isset($_POST['calculate'])){
             </form>
     </div>
 </form>
+
+<div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-10 align-right">
+<?php
+class Wallet {
+    public $totalbalance = 0;
+    }
+
+    function totalbalance($reload) {
+
+        $totalbalance += $reload;
+
+        echo "<h> Balance : " . $totalbalance ."</h>";
+      }
+
+if(isset($_POST['calculate'])){
+    if (!isset($_POST['reload'])) {
+        return 'Please enter your reload amount';
+        exit();
+      }
+
+      $reload = filter_var(htmlentities(floatval($_POST['reload'])),FILTER_SANITIZE_NUMBER_FLOAT);
+
+      totalbalance($reload);
+}
+?>
+</div>
+  </div>
+</div>
