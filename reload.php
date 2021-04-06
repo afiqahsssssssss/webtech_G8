@@ -77,19 +77,4 @@
             onClick="stripePay(event);">
     </div>
 </form>
-<?php if(isset($_POST['calculate'])){
-          if (!isset($_POST['weight'])) {
-            return 'Please enter your weight';
-            exit();
-          }
-          if (!isset($_POST['height'])) {
-            return 'Please enter your height';
-            exit();
-          }
-          $weight = filter_var(htmlentities(floatval($_POST['weight'])),FILTER_SANITIZE_NUMBER_FLOAT);
 
-          $height = filter_var(htmlentities(floatval($_POST['height'])),FILTER_SANITIZE_NUMBER_FLOAT);
-
-          calculateBMI($weight, $height);
-        }
-        ?>
