@@ -1,9 +1,31 @@
 
+
   <?php if(!empty($successMessage)) { ?>
 <div id="success-message">
   <?php echo $successMessage; ?>
 </div>
-<?php  } ?>
+<?php } ?>
+<?php
+class Wallet {
+    public $totalbalance = 0;
+    }
+
+    function totalbalance($reload) {
+
+        $totalbalance += $reload;
+
+        echo "<h> Balance : " . $totalbalance ."</h>";
+      }
+
+if(isset($_POST['calculate'])){
+    if (!isset($_POST['reload'])) {
+        return 'Please enter your reload amount';
+        exit();
+      }
+    }
+      $reload = filter_var(htmlentities(floatval($_POST['reload'])),FILTER_SANITIZE_NUMBER_FLOAT);
+
+?>
 
 
 <div id="error-message"></div>
@@ -12,7 +34,7 @@
   <div class="field-row">
       <label>Enter your preferred amount</label> <span id="reload-amount"
           class="info"></span><br>
-          <input type="number"  id="amount" name="amount"min="10" step="10" max="1000" required>
+          <input type="number"  id="reload" name="reload"min="10" step="10" max="1000" required>
           <br>
           Min reload amount is RM 10
         </div><br>
@@ -72,9 +94,9 @@
         </div>
     </div>
     <div>
-        <input type="submit" name="reload_now" value="Reload Now"
-            id="submit-btn" class="btnAction"
-            onClick="stripePay(event);">
+
+            <form method="POST" action="index.php">
+              <input type="submit" name="reload_now" value="Reload Now">
+            </form>
     </div>
 </form>
-
