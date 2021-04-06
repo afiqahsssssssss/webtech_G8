@@ -1,5 +1,4 @@
 
-
   <?php if(!empty($successMessage)) { ?>
 <div id="success-message">
   <?php echo $successMessage; ?>
@@ -22,9 +21,9 @@ if(isset($_POST['calculate'])){
         return 'Please enter your reload amount';
         exit();
       }
-    }
-      $reload = filter_var(htmlentities(floatval($_POST['reload'])),FILTER_SANITIZE_NUMBER_FLOAT);
 
+      $reload = filter_var(htmlentities(floatval($_POST['reload'])),FILTER_SANITIZE_NUMBER_FLOAT);
+}
 ?>
 
 
