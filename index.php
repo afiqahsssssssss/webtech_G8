@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Roboto', sans-serif;
+      }
+      .balance_fieldset {
+        background-color: #D3D3D3;
+      }
     </style>
     <meta charset="utf-8">
     <title>e-Wallet Management System</title>
@@ -137,17 +145,24 @@
           <input type="submit" name="submit2" value="Pay">
 
         </form>
-        </fieldset>
+        </fieldset><br>
+  
+      <form action="index.php" method="post">
+          <input type="submit" name="get_balance" value="Get Monthly Transaction">
+        </form>
   </body>
   <br><br>
 
 </td></table>
-  <fieldset>
+  <fieldset class="balance_fieldset">
 
 
   <?php
-  $balance=500;
-  echo "Balance : RM" .$balance."<br>";
+    $balance=500;
+    if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['get_balance'])) {
+     echo "<h2>Your transaction for this month are as follows:</h2>";
+     echo "Balance : RM" .$balance."<br>";
+   }
 
   include "view.php";
 
