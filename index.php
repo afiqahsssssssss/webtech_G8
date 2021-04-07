@@ -79,6 +79,7 @@
         <label for="CVC">CVC</label>
         <input type="text" name="cvv" id="cvv" required>
 
+        <br><br>Top up with Credit Card will get <b>RM 0.50</b> cash back
         <br><br>
 
         <input type="submit" name="submit" value="Topup">
@@ -97,24 +98,40 @@
           <!-- <label for="balance">Balance: </label> -->
           <!-- <input type="number" name="bal2" > -->
 
-          <h5>AIR SELANGOR SDN BHD</h5> 
+
+          <label for="Payment">Payment: </label>
+          <input type="number" name="pay" value="">
+
+          <br><br>
+          <label for="Services">Pay to </label>
+          <select name="services" id="Services" required>
+                  <option value="00"></option>
+                  <option value="01">AEON Credit Service (M) Bhd</option>
+                  <option value="02">AIA General Berhad</option>
+                  <option value="01">Ace Tutor</option>
+                  <option value="04">Akademi Darul Ulum</option>
+                  <option value="05">American Express Credit Card</option>
+                  <option value="06">Astro</option>
+                  <option value="07">E-Cosway</option>
+                  <option value="08">Metro Driving Academy</option>
+                </select>
+
+          <br><br>
+
           <label for="accno">Account Number : </label>
-          <input type="number" name="accno" placeholder="12 digit" required>  
-          <br><br>
-          <label for="Payment">Amount (RM):  </label>
-          <input type="number" name="pay" min="1" placeholder="0" value="" required>
-
-          <!-- <br><br> -->
-
-          <!-- <label for="date of transaction"> Date of Transaction </label>
-          <input type="date" name="datetrans2"> -->
+          <input type="number" name="accno" placeholder="12 digit" required>
 
           <br><br>
 
+          <label for="date of transaction"> Date of Transaction </label>
+          <input type="date" name="datetrans2" required>
+
+          <br><br>
           <label for="Time of transaction"> Time of transaction: </label>
-          <input type="time" name="timetrans" value="<?php echo date("h:i");?>">
+          <input type="time" name="timetrans" value="" required>
 
-           
+          <br><br>Discount of <b>10%</b> only peak hours
+          <br><br>  <b>12 - 2pm</b>
           <br><br>
 
           <input type="submit" name="submit2" value="Pay">
@@ -129,8 +146,8 @@
 
 
   <?php
-  echo "<h1>Account</h1>";
-  echo "BALANCE: RM500<br>";
+  $balance=500;
+  echo "Balance : RM" .$balance."<br>";
 
   include "view.php";
 
